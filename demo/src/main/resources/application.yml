@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: demo
+  config:
+    import: "optional:configserver:"
+  cloud:
+    discovery:
+      enabled: true
+      serviceId: "CONFIG-SERVER"
