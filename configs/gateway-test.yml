@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      httpclient:
+        wiretap: true
+      routes:
+        - id: first-service # ???? ?? id??? ??? ???? ??
+          predicates: # ??
+            - Path=/wow/**
+          uri: lb://DEMO
+          filters:
+            - RewritePath=/wow/(?<segment>.*), /$\{segment}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health, info, prometheus"
