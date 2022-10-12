@@ -7,3 +7,10 @@ spring:
     discovery:
       enabled: true
       serviceId: "CONFIG-SERVER"
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: ${EUREKA_URL}

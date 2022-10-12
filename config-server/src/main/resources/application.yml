@@ -8,14 +8,15 @@ spring:
     config:
       server:
         git:
-          uri: file:///Users/goodgoodman/work/hbrc/cloudtest/configs
+          uri: ${GIT_URI}
+        #uri: file:///Users/goodgoodman/work/hbrc/cloudtest/configs
 
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${EUREKA_URL}
 
 management:
   endpoints:

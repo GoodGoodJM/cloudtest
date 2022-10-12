@@ -3,7 +3,7 @@ plugins {
     kotlin("jvm") version "1.6.21" apply true
     id("org.springframework.boot") version "2.7.4" apply false
     kotlin("plugin.spring") version "1.6.21" apply false
-    id("com.google.cloud.tools.jib") version "3.3.0" apply true
+    id("com.google.cloud.tools.jib") version "3.3.0" apply false
 }
 
 
@@ -25,9 +25,9 @@ subprojects {
         plugin("com.google.cloud.tools.jib")
     }
 
-    jib {
-        to {
-            image = "eclipse-temurin:17-jre-focal"
+    extensions.configure<com.google.cloud.tools.jib.gradle.JibExtension> {
+        container {
+            creationTime = "USE_CURRENT_TIMESTAMP"
         }
     }
 
